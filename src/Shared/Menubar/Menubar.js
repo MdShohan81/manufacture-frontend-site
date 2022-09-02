@@ -19,7 +19,7 @@ const Menubar = () => {
     
       </ul>
     </div>
-    <Link className="btn btn-ghost normal-case text-xl logo-img sm:w-full" to='/'><img src={logo} alt="logo" /></Link>
+    <Link className="btn btn-ghost normal-case text-xl logo-img" to='/'><img src={logo} alt="logo" /></Link>
   </div>
   <div className="navbar-end font-semibold text-lg hidden lg:flex">
     <ul className="menu menu-horizontal p-0">
