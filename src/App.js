@@ -1,10 +1,16 @@
-import logo from './logo.svg';
+
 import './App.css';
+import {Routes, Route } from 'react-router-dom';
+import Menubar from './Shared/Menubar/Menubar'
+import Home from './Pages/Home/Home/Home';
 
 function App() {
   return (
     <div className="App">
-      <h1 className='text-center text-blue-600'>Hello Tailwind</h1>
+      <Menubar></Menubar>
+        <Routes>
+            <Route path='/' element={<Home></Home>}></Route>
+        </Routes>
     </div>
   );
 }
