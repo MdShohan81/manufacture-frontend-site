@@ -46,7 +46,6 @@ const Register = () => {
         const password = passRef.current.value;
         await createUserWithEmailAndPassword( email, password);
         await updateProfile({ displayName: name });
-        console.log('update complete', email, password, name);
         event.target.reset();
         toast.success('send verification mail')
         navigate('/');

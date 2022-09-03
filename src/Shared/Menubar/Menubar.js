@@ -2,8 +2,17 @@ import React from 'react';
 import './Menubar.css';
 import { Link } from 'react-router-dom';
 import logo from  '../../assets/logo.png'
+import auth from '../../firebase.init';
+import {useAuthState} from 'react-firebase-hooks/auth';
+import { signOut } from 'firebase/auth';
 
 const Menubar = () => {
+    const [user] = useAuthState(auth);
+
+    const logOut = () =>{
+      signOut(auth)
+    }
+
     return (
         <div className="navbar bg-black text-white">
     <div className="navbar-start">
@@ -15,7 +24,11 @@ const Menubar = () => {
       <li><Link to='/'>Home</Link></li>
       <li><Link to='/blog'>Blogs</Link></li>
       <li><Link to='/blog'>Portfolio</Link></li> 
-        <li><Link to='/login'>Login</Link></li>
+      <li>{ user ?
+            <Link onClick={logOut} to='/signout'>Signout</Link>
+            :
+            <Link to='/login'>Login</Link>
+      }</li>
     
       </ul>
     </div>
@@ -26,7 +39,11 @@ const Menubar = () => {
       <li><Link to='/'>Home</Link></li>
       <li><Link to='/blog'>Blogs</Link></li>
       <li><Link to='/portfolio'>Portfolio</Link></li>      
-    <li><Link to='/login'>Login</Link></li>
+    <li>{ user ?
+            <Link onClick={logOut} to='/signout'>Signout</Link>
+            :
+            <Link to='/login'>Login</Link>
+      }</li>
       
       
     </ul>

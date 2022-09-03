@@ -3,12 +3,17 @@ import { FaGoogle } from 'react-icons/fa';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import Loading from '../../Loading/Loading';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Social = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || '/';
     let errorMessages;
+    
     if(user){
-        console.log(user)
+        navigate(from, { replace: true });
     }
     if(loading){
         return <Loading></Loading>
