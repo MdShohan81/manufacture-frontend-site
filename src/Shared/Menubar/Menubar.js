@@ -25,7 +25,10 @@ const Menubar = () => {
       <li><Link to='/'>Home</Link></li>
       <li><Link to='/blog'>Blogs</Link></li>
       <li><Link to='/portfolio'>Portfolio</Link></li> 
-      <li><Link to='/order'>Order</Link></li> 
+      
+      {
+        user &&<li><Link to='/dashboard'>Dashboard</Link></li>
+      } 
       <li>{ user ?
             <Link onClick={logOut} to='/signout'>Signout</Link>
             :
@@ -40,8 +43,11 @@ const Menubar = () => {
     <ul className="menu menu-horizontal p-0">
       <li><Link to='/'>Home</Link></li>
       <li><Link to='/blog'>Blogs</Link></li>
-      <li><Link to='/portfolio'>Portfolio</Link></li>      
-      <li><Link to='/order'>Order</Link></li>      
+      <li><Link to='/portfolio'>Portfolio</Link></li>
+      {
+        user &&<li><Link to='/dashboard'>Dashboard</Link></li>
+      } 
+         
     <li>{ user ?
             <Link onClick={logOut} to='/signout'>Signout</Link>
             :

@@ -18,7 +18,7 @@ const ProductDetail = () => {
         .then(data => setProduct(data))
     }, []);
 
-    const [quantity, setQuantity] = useState(1);
+    const [quantity, setQuantity] = useState(5);
 
     const increaseQuantity = () => {
         if(product.availablequantity <= quantity) return;

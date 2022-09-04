@@ -10,6 +10,8 @@ import Register from './Pages/Login/Register/Register';
 import ProductDetail from './Pages/Home/ProductDetail/ProductDetail';
 import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
 import Order from './Pages/Order/Order';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import Profile from './Pages/Profile/Profile';
 
 
 function App() {
@@ -25,9 +27,17 @@ function App() {
                 <ProductDetail></ProductDetail>
               </RequireAuth>
             }>
-
             </Route>
-             <Route path='/order' element={<Order></Order>}></Route>
+            <Route path='/dashboard' element={
+              <RequireAuth>
+                <Dashboard></Dashboard>
+              </RequireAuth>
+            }>
+            <Route index element={<Profile></Profile>}></Route>
+            <Route path='order' element={<Order></Order>}></Route>
+            </Route>
+
+             
             </Routes>
            
         <Footer></Footer>
