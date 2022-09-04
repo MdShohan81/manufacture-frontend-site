@@ -10,7 +10,8 @@ const Menubar = () => {
     const [user] = useAuthState(auth);
 
     const logOut = () =>{
-      signOut(auth)
+      signOut(auth);
+      
     }
 
     return (
@@ -23,7 +24,8 @@ const Menubar = () => {
       <ul tabindex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-black text-secondary rounded-box w-52">
       <li><Link to='/'>Home</Link></li>
       <li><Link to='/blog'>Blogs</Link></li>
-      <li><Link to='/blog'>Portfolio</Link></li> 
+      <li><Link to='/portfolio'>Portfolio</Link></li> 
+      <li><Link to='/order'>Order</Link></li> 
       <li>{ user ?
             <Link onClick={logOut} to='/signout'>Signout</Link>
             :
@@ -39,6 +41,7 @@ const Menubar = () => {
       <li><Link to='/'>Home</Link></li>
       <li><Link to='/blog'>Blogs</Link></li>
       <li><Link to='/portfolio'>Portfolio</Link></li>      
+      <li><Link to='/order'>Order</Link></li>      
     <li>{ user ?
             <Link onClick={logOut} to='/signout'>Signout</Link>
             :

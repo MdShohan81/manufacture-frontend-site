@@ -24,7 +24,6 @@ const Login = () => {
       ] = useSignInWithEmailAndPassword(auth);
 
       if(user){
-        console.log(user)
         navigate(from, { replace: true });
       }
       if(loading){

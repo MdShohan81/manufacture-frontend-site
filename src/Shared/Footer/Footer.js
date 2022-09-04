@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <footer class="footer p-10 bg-black text-white">
   <div>
-    <img src={logo} alt="img"  className='footer-img'/>
+    <h2 className='text-4xl text-white'>Manufacturer Tiles</h2>
     <p>ACME Industries Ltd.<br/>Providing reliable tech since 1992</p>
   </div> 
   <div>

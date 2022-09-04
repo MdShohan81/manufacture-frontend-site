@@ -1,65 +1,65 @@
 [
     {
-      "_id": "6312f072c63c4c406fe99f7b",
+      
       "img": "https://i.ibb.co/VLTyL9f/photo-1489843608652-0058d31170f6-540x540.jpg",
       "price": 80,
       "availablequantity": 1437,
       "minquantity": 1,
-      "name": "Mcleod",
-      "description": "Cora"
+      "name": "Ceramic Tile",
+      "description": "Cos Quilt Cover Set - Silver Blue"
     },
     {
-      "_id": "6312f072a0ef73d84fca0cb3",
+      
       "img": "https://i.ibb.co/d2n8zRR/photo-1525088469824-fecdf2298546-540x540.jpg",
       "price": 65,
       "availablequantity": 1350,
       "minquantity": 1,
-      "name": "Booth",
-      "description": "Hurst"
+      "name": "Ceramic Tile",
+      "description": "Finca Quilt Cover Set - Dove"
     },
     {
-      "_id": "6312f072d918f0f1fb38ecbe",
+     
       "img": "https://i.ibb.co/YkPXsNb/photo-1545901712-332635091560-540x540.jpg",
       "price": 71,
       "availablequantity": 1392,
       "minquantity": 1,
-      "name": "Eleanor",
-      "description": "Giles"
+      "name": "Ceramic Tile",
+      "description": "Finca Quilt Cover Set  Greyst"
     },
     {
-      "_id": "6312f072247b775ebec5b189",
+     
       "img": "https://i.ibb.co/9GTb6Np/photo-1545901712-a984ae856311-540x540.jpg",
       "price": 74,
       "availablequantity": 1377,
       "minquantity": 1,
-      "name": "Jami",
-      "description": "Church"
+      "name": "Ceramic Tile",
+      "description": "Maison Fringe Quilt Cover"
     },
     {
-      "_id": "6312f072bcbf60d14c0c87b3",
+     
       "img": "https://i.ibb.co/kyRX27d/photo-1450704944629-6a65f6810cf2-540x540.jpg",
       "price": 63,
       "availablequantity": 1709,
       "minquantity": 1,
-      "name": "Jerry",
-      "description": "Noemi"
+      "name": "Ceramic Tile",
+      "description": "Rarni Quilt Cover Set – Steel"
     },
     {
-      "_id": "6312f072e9c45a89be553fce",
+      
       "img": "https://i.ibb.co/VLTyL9f/photo-1489843608652-0058d31170f6-540x540.jpg",
       "price": 59,
       "availablequantity": 1966,
       "minquantity": 1,
-      "name": "Alexandra",
-      "description": "Cleveland"
+      "name": "Ceramic Tile",
+      "description": "Sunset Quilt Cover Set"
     },
     {
-      "_id": "6312f072d09f20b538020df4",
+      
       "img": "https://i.ibb.co/9GTb6Np/photo-1545901712-a984ae856311-540x540.jpg",
       "price": 70,
       "availablequantity": 1562,
       "minquantity": 1,
-      "name": "Renee",
-      "description": "Oneill"
+      "name": "Ceramic Tile",
+      "description": "Sunset Quilt Cover Set"
     }
   ]
