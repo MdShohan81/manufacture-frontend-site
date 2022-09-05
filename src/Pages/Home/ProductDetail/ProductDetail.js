@@ -18,7 +18,7 @@ const ProductDetail = () => {
         .then(data => setProduct(data))
     }, []);
 
-    const [quantity, setQuantity] = useState(5);
+    const [quantity, setQuantity] = useState(1);
 
     const increaseQuantity = () => {
         if(product.availablequantity <= quantity) return;
@@ -35,6 +35,7 @@ const ProductDetail = () => {
 
     const handlePlaceOrder = event =>{
         event.preventDefault();
+        let price = parseFloat(product.price);
         const order = {
             name: user.displayName,
             email: user.email,
@@ -43,6 +44,7 @@ const ProductDetail = () => {
             price: product.price,
             productId: productId,
             quantity: event.target.quantity.value,
+            totalPrice: parseFloat(price * quantity),
             address: event.target.address.value,
             phone: event.target.phone.value,
         }
@@ -87,6 +89,7 @@ const ProductDetail = () => {
                     <span onClick={increaseQuantity}><FaPlus/></span>
                 </label>
                 </div>
+                
                 <label className='form-control'>
                 <input type="text"  className="input input-bordered  focus:outline-none mb-2  text-secondary border-secondary" value={user?.displayName}/>
                 </label>
@@ -94,10 +97,10 @@ const ProductDetail = () => {
                 <input type="email"  className="input input-bordered  focus:outline-none mb-2  text-secondary border-secondary" value={user?.email}/>
                 </label>
                 <label className='form-control'>
-                <input type="text" name='address' placeholder='Enter Address' className="input input-bordered  focus:outline-none mb-2  text-secondary border-secondary" />
+                <input type="text" name='address' placeholder='Enter Address' className="input input-bordered  focus:outline-none mb-2  text-secondary border-secondary" required/>
                 </label>
                 <label className='form-control'>
-                <input type="text" name='phone' placeholder="Phone number" className="input input-bordered  focus:outline-none mb-2  text-secondary border-secondary" />
+                <input type="text" name='phone' placeholder="Phone number" className="input input-bordered  focus:outline-none mb-2  text-secondary border-secondary" required/>
                 </label>
                 
                 <button className='btn btn-secondary my-3'>Place order</button>

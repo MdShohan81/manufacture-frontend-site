@@ -6,6 +6,7 @@ import auth from '../../../firebase.init';
 import Social from '../Social/Social';
 import { toast } from 'react-toastify';
 import Loading from '../../Loading/Loading';
+import useToken from '../../../hooks/useToken';
 
 const Register = () => {
     const nameRef = useRef('');
@@ -27,13 +28,15 @@ const Register = () => {
       //profile update
       const  [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
+      const [token] = useToken(user);
+
       let errorMessages;
     if(error || updateError){
         errorMessages = <div>
                             <p className='text-secondary text-sm'>{'Please put info'}</p>
                         </div>
     }
-      if(user){
+      if(token){
         navigate(from, { replace: true });
     }
 
@@ -51,7 +54,7 @@ const Register = () => {
         await updateProfile({ displayName: name });
         event.target.reset();
         toast.success('send verification mail')
-        navigate('/');
+       
     }
 
     return (
@@ -64,10 +67,10 @@ const Register = () => {
                 <input type="text" ref={nameRef} placeholder="Enter Name"  className="input input-bordered w-full mb-4 text-lg p-2 text-secondary border-secondary" required/>
                 <input type="email" ref={emailRef} placeholder="Enter email"  className="input input-bordered w-full mb-4 text-lg p-2 text-secondary border-secondary" required/>
                 <input type="password" ref={passRef} placeholder="Enter Password" className="input input-bordered w-full text-lg p-2 text-secondary border-secondary" required/>
-                <button className='btn btn-secondary w-full mt-3 text-white'>Login</button>
+                <button className='btn btn-secondary w-full mt-3 text-white'>Register Now</button>
                 </form>
                 <p>
-                    New member? <Link to='/register' className='text-success font-semibold'>Register</Link> here
+                    Already member? <Link to='/login' className='text-success font-semibold'>Login</Link> here
                 </p>
                 <div class="divider">OR</div>
                 <Social></Social>

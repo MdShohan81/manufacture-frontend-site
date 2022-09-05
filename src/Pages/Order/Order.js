@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { FiTrash2 } from "react-icons/fi";
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 const Order = () => {
     const [orders, setOrders] = useState([]);
@@ -15,6 +16,26 @@ const Order = () => {
         
     }, [user]);
 
+    const deleteOrder = id => {
+      const proceed = window.confirm('Do you want to cancel order');
+      if(proceed){
+        const url = `http://localhost:5000/order/${id}`;
+      fetch(url,{
+        method: 'DELETE'
+      })
+      .then(res => res.json())
+      .then(data => {
+        if(data){
+          console.log(data);
+          const remaining = orders.filter(order => order._id !== id);
+          setOrders(remaining);
+          toast.success('Successfully cancel your order')
+        }
+      })
+      }
+
+    }
+
     return (
         <div>
             <h3>My Order: {orders.length}</h3>
@@ -27,6 +48,7 @@ const Order = () => {
         <th>Img</th>
         <th>Name</th>
         <th>quantity</th>
+        <th>Total</th>
         <th>email</th>
         <th>Cancel</th>
         <th>Payment</th>
@@ -40,8 +62,9 @@ const Order = () => {
             <td><img class="mask mask-square w-10" src={order.img} alt='img'/></td>
             <td>{order.name}</td>
             <td>{order.quantity}</td>
+            <td>{order.totalPrice}</td>
             <td>{order.email}</td>
-            <td><button><FiTrash2 className='ml-3 text-secondary text-xl'/></button></td>
+            <td><button onClick={() => deleteOrder(order._id)}><FiTrash2 className='ml-3 text-secondary text-xl'/></button></td>
             <td><button className='text-secondary'>Payment</button></td>
             <td>
                

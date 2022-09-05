@@ -6,6 +6,7 @@ import auth from '../../../firebase.init';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../../Loading/Loading';
 import { toast } from 'react-toastify';
+import useToken from '../../../hooks/useToken';
 
 
 const Login = () => {
@@ -23,7 +24,9 @@ const Login = () => {
         error,
       ] = useSignInWithEmailAndPassword(auth);
 
-      if(user){
+      const [token] = useToken(user)
+
+      if(token){
         navigate(from, { replace: true });
       }
       if(loading){
@@ -35,7 +38,6 @@ const Login = () => {
           const email = emailRef.current.value;
           const password = passRef.current.value;
          await  signInWithEmailAndPassword(email, password);
-         navigate(from, { replace: true });
          console.log(email, password);
          toast.success('Login Successfully')
   
@@ -52,7 +54,7 @@ const Login = () => {
                 <button className='btn btn-secondary w-full mt-3 text-white'>Login</button>
                 </form>
                 <p>
-                    Already member? <Link to='/register' className='text-success font-semibold'>Register</Link> here
+                    New member? <Link to='/register' className='text-success font-semibold'>Register</Link> here
                 </p>
                 <div class="divider">OR</div>
                 <Social></Social>

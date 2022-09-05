@@ -11,7 +11,7 @@ const Menubar = () => {
 
     const logOut = () =>{
       signOut(auth);
-      
+      localStorage.removeItem('accessToken');
     }
 
     return (
@@ -30,7 +30,7 @@ const Menubar = () => {
         user &&<li><Link to='/dashboard'>Dashboard</Link></li>
       } 
       <li>{ user ?
-            <Link onClick={logOut} to='/signout'>Signout</Link>
+            <Link onClick={logOut} to='/login'>Signout</Link>
             :
             <Link to='/login'>Login</Link>
       }</li>
@@ -49,7 +49,7 @@ const Menubar = () => {
       } 
          
     <li>{ user ?
-            <Link onClick={logOut} to='/signout'>Signout</Link>
+            <Link onClick={logOut} to='/login'>Signout</Link>
             :
             <Link to='/login'>Login</Link>
       }</li>
