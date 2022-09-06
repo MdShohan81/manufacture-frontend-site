@@ -24,13 +24,13 @@ const ProductDetail = () => {
         if(product.availablequantity <= quantity) return;
         const qty = quantity + 1;
         setQuantity(qty);
-        toast.success('Product quantity increase')
+        
     }
     const decreaseQuantity = () => {
         if(product.minquantity >= quantity) return;
         const qty = quantity - 1;
         setQuantity(qty);
-        toast.success('product quantity decrease')
+        
     }
 
     const handlePlaceOrder = event =>{
@@ -70,7 +70,7 @@ const ProductDetail = () => {
             <h1 className='text-2xl font-semibold py-4 text-center'>you choose this: <span className='text-secondary text-bold'>{product.name}</span></h1>
             <div className='grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-4 my-8'>
                 {/* //details page img */}
-                <div className='card p-4 shadow-xl mx-auto  border-2 border-secondary'>
+                <div className='card p-4 shadow-xl flex justify-center items-center border-2 border-secondary'>
                 <img src={product.img} className="product-img" alt="img" />
                 </div>
                 {/* details page information */}

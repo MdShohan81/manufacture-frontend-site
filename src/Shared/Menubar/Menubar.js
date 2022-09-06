@@ -24,7 +24,7 @@ const Menubar = () => {
       <ul tabindex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-black text-secondary rounded-box w-52">
       <li><Link to='/'>Home</Link></li>
       <li><Link to='/blog'>Blogs</Link></li>
-      <li><Link to='/portfolio'>Portfolio</Link></li> 
+      
       
       {
         user &&<li><Link to='/dashboard'>Dashboard</Link></li>
@@ -43,7 +43,7 @@ const Menubar = () => {
     <ul className="menu menu-horizontal p-0">
       <li><Link to='/'>Home</Link></li>
       <li><Link to='/blog'>Blogs</Link></li>
-      <li><Link to='/portfolio'>Portfolio</Link></li>
+      
       {
         user &&<li><Link to='/dashboard'>Dashboard</Link></li>
       } 
