@@ -1,20 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { FiTrash2 } from 'react-icons/fi';
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from '../../firebase.init';
+import useAdmin from '../../hooks/useAdmin';
 
-const ManageOrder = ({user}) => {
+const ManageOrder = () => {
     const [orders, setOrders] = useState([]);
+    const [user] = useAuthState(auth);
+    const [admin] = useAdmin(user);
+  
 
     useEffect(() => {
-        fetch(`http://localhost:5000/order/admin`,{
-          method: 'Get',
-          headers:{
-              authorization: `Bearer ${localStorage.getItem('accessToken')}`
-          }
-      })
-        .then(res => res.json())
-        .then(data => setOrders(data));
-
-    }, [])
+        if (admin) {
+          const url = "http://localhost:5000/allOrders";
+          fetch(url, {
+            method: "Get",
+            headers: {
+              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+          })
+            .then((res) => res.json())
+            .then((data) => {
+                setOrders(data);
+            });
+        }
+      }, [admin]);
 
     return (
         <div>

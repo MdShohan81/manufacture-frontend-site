@@ -2,7 +2,7 @@ import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { FiTrash2 } from "react-icons/fi";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 const Order = () => {
@@ -82,7 +82,9 @@ const Order = () => {
             <td>{order.totalPrice}</td>
             <td>{order.email}</td>
             <td><button onClick={() => deleteOrder(order._id)}><FiTrash2 className='ml-3 text-secondary text-xl'/></button></td>
-            <td><button className='text-secondary'>Payment</button></td>
+            <td>
+              {(order.price && !order.paid) && <Link to={`/dashboard/payment/${order._id}`}><button className='btn  btn-secondary'>payment</button></Link>}
+              {(order.price && order.paid) && <span className='text-green-700'>paid</span>}</td>
             <td>
                
             </td>
