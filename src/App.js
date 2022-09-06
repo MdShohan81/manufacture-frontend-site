@@ -15,6 +15,9 @@ import Profile from './Pages/Profile/Profile';
 import User from './Pages/User/User';
 import MyReview from './Pages/MyReview/MyReview';
 import RequireAdmin from './Pages/Login/RequireAdmin/RequireAdmin';
+import ManageProduct from './Pages/ManageProduct/ManageProduct';
+import AddProduct from './Pages/AddProduct/AddProduct';
+import ManageOrder from './Pages/ManageOrder/ManageOrder';
 
 
 function App() {
@@ -42,6 +45,9 @@ function App() {
               <User></User>
             </RequireAdmin>}></Route>
             <Route path='myreview' element={<MyReview></MyReview>}></Route>
+            <Route path='manageproduct' element={<ManageProduct></ManageProduct>}></Route>
+            <Route path='addproduct' element={<AddProduct></AddProduct>}></Route>
+            <Route path='manageorder' element={<ManageOrder></ManageOrder>}></Route>
             </Route>
 
              
