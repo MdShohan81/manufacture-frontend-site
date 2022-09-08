@@ -7,7 +7,7 @@ const ManageProduct = () => {
     const deleteProduct = id => {
         const proceed = window.confirm('are you sure');
         if(proceed){
-            const url =`http://localhost:5000/product/${id}`;
+            const url =`https://tranquil-everglades-72932.herokuapp.com/product/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

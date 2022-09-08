@@ -12,7 +12,7 @@ const ManageOrder = () => {
 
     useEffect(() => {
         if (admin) {
-          const url = "http://localhost:5000/allOrders";
+          const url = "https://tranquil-everglades-72932.herokuapp.com/allOrders";
           fetch(url, {
             method: "Get",
             headers: {

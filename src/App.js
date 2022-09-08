@@ -19,6 +19,8 @@ import ManageProduct from './Pages/ManageProduct/ManageProduct';
 import AddProduct from './Pages/AddProduct/AddProduct';
 import ManageOrder from './Pages/ManageOrder/ManageOrder';
 import Payment from './Pages/Payment/Payment';
+import NotFound from './Pages/NotFound/NotFound';
+import Blog from './Pages/Blog/Blog';
 
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
             <Route path='/' element={<Home></Home>}></Route>
             <Route path='/login' element={<Login></Login>}></Route>
             <Route path='/register' element={<Register></Register>}></Route>
+            <Route path='/blog' element={<Blog></Blog>}></Route>
+            <Route path='*' element={<NotFound></NotFound>}></Route>
             <Route path='/product/:productId' element={
               <RequireAuth>
                 <ProductDetail></ProductDetail>

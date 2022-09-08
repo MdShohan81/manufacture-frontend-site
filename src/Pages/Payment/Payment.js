@@ -12,7 +12,7 @@ const stripePromise = loadStripe('pk_test_51Lf2DfFYHdkb91RGbOa4v4oDwCcd8I9iFWhM2
 
 const Payment = () => {
     const {id} = useParams();
-    const url = `http://localhost:5000/order/${id}`;
+    const url = `https://tranquil-everglades-72932.herokuapp.com/order/${id}`;
 
     const {data: order, isLoading} = useQuery(['order', id], () => fetch(url, {
         method: 'GET',

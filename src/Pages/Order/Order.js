@@ -12,7 +12,7 @@ const Order = () => {
 
     useEffect(() => {
         if(user){
-        fetch(`http://localhost:5000/order?email=${user.email}`, {
+        fetch(`https://tranquil-everglades-72932.herokuapp.com/order?email=${user.email}`, {
           method: 'GET',
           headers:{
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -36,7 +36,7 @@ const Order = () => {
     const deleteOrder = id => {
       const proceed = window.confirm('Do you want to cancel order');
       if(proceed){
-        const url = `http://localhost:5000/order/${id}`;
+        const url = `https://tranquil-everglades-72932.herokuapp.com/order/${id}`;
       fetch(url,{
         method: 'DELETE'
       })
